@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="icon" type="image/png" href="img/controlador-de-juego.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">
+            <img src="img/controlador-de-juego.png" alt="Logo Gamer Store">
+            <h1>Gamer<span>Store</span></h1>
+        </div>
+        <!-- Botón del menú hamburguesa -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!-- NAV -->
+        <nav class="nav" id="navMenu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="games.html">Juegos</a></li>
+                <li><a href="contact.html" class="active">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contact-section">
+        <h2>Pedinos tu juego</h2>
+        <p>¿No encontrás el juego que querés? Escribinos y lo agregamos a GamerStore.</p>
+
+        <form class="contact-form">
+            <div class="form-group">
+                <input type="text" name="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Tu correo" required>
+            </div>
+            <div class="form-group">
+                <textarea name="mensaje" rows="5" placeholder="Contanos qué juego te gustaría ver aquí..."
+                    required></textarea>
+            </div>
+            <button type="submit" class="btn">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 GamerStore | Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="JS/JScript.js"></script>
+</body>
+</html>

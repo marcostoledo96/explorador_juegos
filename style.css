@@ -1,6 +1,3 @@
-/*
-  Hoja de estilos principal del proyecto.
-*/
 
 /* Estilos generales */
 body {
@@ -10,11 +7,6 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-}
-
-/* Contenedor principal de la aplicación */
-.contenedor-app {
-    /* Nada especial por ahora, solo agrupa todo */
 }
 
 /* Encabezado */
@@ -151,4 +143,170 @@ select#filtro-genero {
     color: #00FFFF;
     font-size: 0.875rem; /* 14px */
     margin: 0;
+}
+
+/* 🔹 SECCIÓN DE CONTACTO */
+.contact-section {
+    padding: 80px 30px;
+    background: #0d0d0d;
+    text-align: center;
+    border-top: 2px solid #00ff99;
+}
+
+.contact-section h2 {
+    color: #00ff99;
+    margin-bottom: 10px;
+}
+
+.contact-section p {
+    color: #ccc;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+}
+
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 60%;
+    padding: 12px;
+    background: #0d0d0d;
+    border: 1px solid #00ff99;
+    color: #fff;
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 8px #00ff99;
+}
+
+.contact-form button {
+    margin-top: 10px;
+    padding: 12px 25px;
+    background: #00ff99;
+    color: #000;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #00cc7a;
+}
+
+/* Responsive contacto */
+@media (max-width: 768px) {
+    .contact-form {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+/* --- MENU HAMBURGUESA --- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: white;
+    transition: 0.3s;
+}
+
+/* Animación del icono */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* NAV responsive */
+@media (max-width: 768px) {
+    .nav ul {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background: #111;
+        width: 200px;
+        padding: 20px;
+        display: none;
+        flex-direction: column;
+        border-radius: 8px;
+    }
+
+    .nav.open ul {
+        display: flex;
+    }
+
+    .nav ul li {
+        margin: 15px 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* ============================
+   CARRUSEL DE IMÁGENES
+============================ */
+
+.carousel-container {
+    position: relative;
+    width: 90%;
+    max-width: 990px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.carousel img {
+    width: 100%;
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;     
+    border: none;         
+    color: white;        
+    font-size: 40px;    
+    cursor: pointer;
+    padding: 0;        
+}
+
+.carousel-btn:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
 }
