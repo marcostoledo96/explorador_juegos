@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contenedor-app">
+
+        <!-- Encabezado -->
+        <header class="encabezado">
+            <h1><span class="logo-acento">Explorador de Juegos</span> Gratuitos</h1>
+        </header>
+
+        <!-- Controles de filtrado -->
+        <div class="controles">
+            <div class="contenedor-filtro">
+                <label for="filtro-genero">Filtrar por Género:</label>
+                <!-- Menú desplegable para los géneros (se rellena con JS) -->
+                <select id="filtro-genero">
+                    <option value="all">Todos los géneros</option>
+                </select>
+                <!-- Contador de juegos (se actualiza con JS) -->
+                <span id="contador-juegos" class="contador-juegos"></span>
+            </div>
+        </div>
+
+        <!-- Contenido principal -->
+        <main class="contenido-principal">
+            <!-- Mensaje de "Cargando..." (se oculta con JS) -->
+            <div id="mensaje-cargando" class="cargando">Cargando juegos...</div>
+            <!-- Grilla donde se van a mostrar las tarjetas de los juegos -->
+            <div id="grilla-juegos" class="grilla-juegos"></div>
+        </main>
+
+    </div>
+        <script src="script.js" type="module" defer></script>
+</body>
+</html>
