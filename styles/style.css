@@ -3,6 +3,10 @@
 =========================== */
 
 /* ====== ESTILOS GENERALES ====== */
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color:  #000;
     color: #e0e0e0;
@@ -655,7 +659,8 @@ select#filtro-genero:focus {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    flex: 1 1 220px;
+    flex: 1 1 0; /* Yo: flex-basis 0 para forzar igualdad real */
+    min-width: 200px; /* Yo: ancho mínimo para que hagan wrap si falta espacio */
 }
 
 .contenedor-filtro label {
