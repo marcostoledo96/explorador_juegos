@@ -655,8 +655,7 @@ select#filtro-genero:focus {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    flex: 1 1 200px;
-    max-width: 250px;
+    flex: 1 1 220px;
 }
 
 .contenedor-filtro label {
@@ -667,7 +666,6 @@ select#filtro-genero:focus {
 
 .contenedor-filtro select,
 .contenedor-filtro input[type="text"] {
-    width: 100%;
     padding: 10px;
     background: #0d0d0d;
     border: 1px solid #2a2a2a;
