@@ -10,8 +10,6 @@
  * - Renderizado dinámico de tarjetas de juegos
  * - Cache de 1 hora y reintentos automáticos para mejor performance
  * 
- * @author Marcos Toledo
- * @version 3.0
  */
 
 // Estado global de la aplicación
@@ -27,6 +25,16 @@ const inputBusqueda = document.getElementById('busqueda-titulo');
 const filtroOrdenamiento = document.getElementById('filtro-ordenamiento');
 const contadorJuegos = document.getElementById('contador-juegos');
 const mensajeCargando = document.getElementById('mensaje-cargando');
+
+// === Navegación móvil (menú hamburguesa) ===
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('open');
+    });
+}
 
 // Inicio la carga cuando el DOM está listo
 document.addEventListener('DOMContentLoaded', () => {
@@ -79,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * En producción usa /api/games (con cache de 1h), en desarrollo usa AllOrigins.
  * Incluye timeout de 12s y hasta 2 reintentos automáticos.
  */
-async function fetchJuegos({ platform = 'pc', category = '', sortBy = 'popularity' } = {}, reintentos = 2) {
+async function fetchJuegos({ platform = '', category = '', sortBy = 'popularity' } = {}, reintentos = 2) {
     // SIEMPRE usar proxy serverless en producción (cualquier dominio que no sea localhost)
     const esLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     
