@@ -119,6 +119,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+    .hero {
+        padding: 100px 15px; /* Yo: reduzco padding lateral en móvil */
+    }
+
     .header {
         padding: 15px 20px;
     }
@@ -314,6 +318,13 @@ select#filtro-genero:focus {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 24px;
     padding: 0 40px;
+    justify-content: center; /* Yo: centro el contenido de la grilla */
+}
+
+.enlace-tarjeta-juego {
+    display: block;
+    width: 100%;
+    text-decoration: none;
 }
 
 .tarjeta-juego {
@@ -894,8 +905,9 @@ select#filtro-genero:focus {
     }
 
     .grilla-juegos {
-        grid-template-columns: 1fr;
-        padding: 0 20px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Yo: auto-fit para mejor adaptación */
+        padding: 0 10px; /* Yo: reduzco padding para ganar espacio */
+        justify-content: center; /* Yo: centro la grilla */
     }
 
     .tarjeta-juego {
