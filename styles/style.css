@@ -980,36 +980,12 @@ select#filtro-genero:focus {
     }
     
     .tarjeta-juego .contenido {
-        padding: 8px 3px; /* Yo: padding horizontal reducido */
-    }
-    
-    .tarjeta-juego .titulo {
-        font-size: 0.95rem;
-    }
-    
-    .tarjeta-juego .genero {
-        font-size: 0.8rem;
-    }
-    
-    .meta-info {
-        font-size: 0.75rem;
+        padding: 12px 3px;
     }
 }
 
 /* Yo: móviles muy pequeños (< 400px) */
 @media (max-width: 400px) {
-    .tarjeta-juego .titulo {
-        font-size: 0.9rem;
-    }
-    
-    .tarjeta-juego .genero {
-        font-size: 0.75rem;
-    }
-    
-    .meta-info {
-        font-size: 0.7rem;
-    }
-    
     .tarjeta-juego {
         height: auto;
     }
