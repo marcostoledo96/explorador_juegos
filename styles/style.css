@@ -283,7 +283,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 select#filtro-genero {
-    width: 200px;
+    width: 100%; /* Yo: ancho completo para igualar a los otros */
     background-color: #0d0d0d; /* Yo: mismo color que otros selectores */
     border: 1px solid #2a2a2a; /* Yo: mismo borde que otros selectores */
     color: #e0e0e0; /* Yo: mismo color de texto */
@@ -666,6 +666,7 @@ select#filtro-genero:focus {
 
 .contenedor-filtro select,
 .contenedor-filtro input[type="text"] {
+    width: 100%; /* Yo: asegura que ocupen todo el ancho del contenedor */
     padding: 10px;
     background: #0d0d0d;
     border: 1px solid #2a2a2a;
@@ -1025,34 +1026,34 @@ select#filtro-genero:focus {
     }
     
     .tarjeta-juego .contenido {
-        padding: 8px;
+        padding: 12px 8px; /* Yo: un poco más de padding lateral */
     }
     
     .tarjeta-juego .titulo {
-        font-size: 0.8rem;
+        font-size: 1.2rem; /* Yo: AUMENTADO considerablemente */
     }
     
     .tarjeta-juego .genero {
-        font-size: 0.68rem;
+        font-size: 1rem; /* Yo: AUMENTADO */
     }
     
     .meta-info {
-        font-size: 0.6rem;
+        font-size: 0.9rem; /* Yo: AUMENTADO */
     }
 }
 
 /* Yo: móviles muy pequeños (< 400px) */
 @media (max-width: 400px) {
     .tarjeta-juego .titulo {
-        font-size: 0.75rem;
+        font-size: 1.1rem; /* Yo: AUMENTADO */
     }
     
     .tarjeta-juego .genero {
-        font-size: 0.65rem;
+        font-size: 0.95rem; /* Yo: AUMENTADO */
     }
     
     .meta-info {
-        font-size: 0.58rem;
+        font-size: 0.85rem; /* Yo: AUMENTADO */
     }
     
     .tarjeta-juego {
