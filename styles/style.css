@@ -1,5 +1,5 @@
 /* ===========================
-   HOJA DE ESTILOS - GAMER STORE
+HOJA DE ESTILOS - GAMER STORE
 =========================== */
 
 /* ====== ESTILOS GENERALES ====== */
@@ -476,6 +476,8 @@ select#filtro-genero:focus {
     color: white;
     border-radius: 8px;
     margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif; /* fuente uniforme */
+    font-size: 0.95rem; /* ligera mejora de legibilidad */
 }
 
 .contact-form input:focus,
@@ -493,10 +495,20 @@ select#filtro-genero:focus {
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
+    font-family: 'Orbitron', sans-serif; /* misma tipografía que el resto */
+    letter-spacing: 0.5px;
 }
 
 .contact-form button:hover {
     background: #00cc7a;
+}
+
+/* Placeholders con misma tipografía */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    font-family: 'Orbitron', sans-serif;
+    color: #888;
+    letter-spacing: 0.5px;
 }
 
 /* ====== FOOTER ====== */
