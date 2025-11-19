@@ -354,12 +354,14 @@ select#filtro-genero:focus {
     line-height: 1.3;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     -webkit-line-clamp: 2; /* Yo: permite hasta 2 líneas */
     -webkit-box-orient: vertical;
     white-space: normal; /* Yo: permito salto de línea */
     min-height: 2.6em; /* Yo: altura mínima para 2 renglones (1.3 * 2) */
-    justify-content: center; /* Yo: centrado vertical */
+    text-align: center;
 }
 
 .tarjeta-juego .genero {

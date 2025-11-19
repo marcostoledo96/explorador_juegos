@@ -176,37 +176,46 @@ document.addEventListener('DOMContentLoaded', () => {
  * @returns {Promise<Array>} Promesa que resuelve con un array de objetos de juego
  * @throws {Error} Si la petición HTTP falla
  */
-async function fetchJuegos({ platform = 'pc', category = '', sortBy = 'popularity' } = {}) {
-    // Configuración del proxy: cambiar a true si tenés el backend local corriendo
-    const useLocalProxy = false;
+async function fetchJuegos({ platform = 'pc', category = '', sortBy = 'popularity' } = {}, reintentos = 2) {
+    // SIEMPRE usar proxy serverless en producción (cualquier dominio que no sea localhost)
+    const esLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     
     let url;
     
-    if (useLocalProxy) {
-        // Estrategia 1: Backend local (Node.js + Express)
-        // Construyo la URL con parámetros de query
+    if (!esLocal) {
+        // Producción: usar proxy serverless de Vercel con cache
         const params = new URLSearchParams();
         if (platform && platform !== 'all') params.set('platform', platform);
         if (category && category !== 'all') params.set('category', category);
         if (sortBy) params.set('sort-by', sortBy);
-        url = `http://localhost:3000/api/games?${params.toString()}`;
+        url = `/api/games?${params.toString()}`;
     } else {
-        // Estrategia 2: Proxy público (AllOrigins)
-        // AllOrigins hace la petición por nosotros y evita CORS
+        // Desarrollo local: usar AllOrigins
         const targetUrl = `https://www.freetogame.com/api/games?platform=${platform}${category ? '&category=' + category : ''}${sortBy ? '&sort-by=' + sortBy : ''}`;
         url = "https://api.allorigins.win/raw?url=" + encodeURIComponent(targetUrl);
     }
     
-    // Realizo la petición HTTP
-    const respuesta = await fetch(url);
-    
-    // Verifico que la respuesta sea exitosa (status 200-299)
-    if (!respuesta.ok) {
-        throw new Error(`Error HTTP: ${respuesta.status}`);
+    // Petición con timeout y reintentos
+    try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 12000);
+        
+        const respuesta = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        
+        if (!respuesta.ok) {
+            throw new Error(`Error HTTP: ${respuesta.status}`);
+        }
+        
+        return await respuesta.json();
+    } catch (error) {
+        if (reintentos > 0 && (error.name === 'AbortError' || error.message.includes('HTTP'))) {
+            console.warn(`Reintentando (${reintentos} restantes)...`);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            return fetchJuegos({ platform, category, sortBy }, reintentos - 1);
+        }
+        throw error;
     }
-    
-    // Parseo y retorno el JSON
-    return await respuesta.json();
 }
 
 /**
