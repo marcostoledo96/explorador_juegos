@@ -2,7 +2,7 @@
 
 Introducción
 
-Yo: en este documento explico en detalle cómo funciona cada archivo JavaScript del proyecto. Voy a describir bloque por bloque y línea por línea los archivos `script.js` y `Jscript.js` que son los que contienen la lógica principal de la interfaz y las interacciones.
+En este documento explico en detalle cómo funciona cada archivo JavaScript del proyecto. Voy a describir bloque por bloque y línea por línea los archivos `script.js` y `Jscript.js` que son los que contienen la lógica principal de la interfaz y las interacciones.
 
 Formato
 
@@ -15,38 +15,38 @@ Archivo: `script.js`
 
 Resumen corto
 
-Yo: `script.js` es la lógica principal que consulta la FreeToGame API, guarda los juegos en memoria, arma el menú de géneros, renderiza las tarjetas en `games.html` y provee funciones de filtrado y utilidades como mostrar/ocultar el mensaje "Cargando...".
+`script.js` es la lógica principal que consulta la FreeToGame API, guarda los juegos en memoria, arma el menú de géneros, renderiza las tarjetas en `games.html` y provee funciones de filtrado y utilidades como mostrar/ocultar el mensaje "Cargando...".
 
 Contenido y explicación línea por línea
 
 /* Inicio del archivo */
 
 // Comentario: declaración de estado global
-let todosLosJuegos = []; // Yo: aquí guardo la lista completa de juegos recibida de la API para poder filtrar y renderizar sin volver a pedirlos.
-let generos = []; // Yo: array de géneros únicos para poblar el select de filtrado.
+let todosLosJuegos = []; // Aquí guardo la lista completa de juegos recibida de la API para poder filtrar y renderizar sin volver a pedirlos.
+let generos = []; // Array de géneros únicos para poblar el select de filtrado.
 
 // Comentario: referencias a elementos del DOM
 const grillaJuegos = document.getElementById('grilla-juegos');
-// Yo: almaceno la referencia al contenedor donde voy a insertar las tarjetas de los juegos.
+// Almaceno la referencia al contenedor donde voy a insertar las tarjetas de los juegos.
 const filtroGenero = document.getElementById('filtro-genero');
-// Yo: select que permite filtrar por género.
+// Select que permite filtrar por género.
 const contadorJuegos = document.getElementById('contador-juegos');
-// Yo: etiqueta donde muestro cuántos juegos están visibles.
+// Etiqueta donde muestro cuántos juegos están visibles.
 const mensajeCargando = document.getElementById('mensaje-cargando');
-// Yo: elemento que muestro/oculto durante peticiones de red.
+// Elemento que muestro/oculto durante peticiones de red.
 
 // Eventos
 
 document.addEventListener('DOMContentLoaded', () => {
     buscarJuegos();
 });
-// Yo: cuando el DOM está listo, ejecuto `buscarJuegos` para traer los datos.
+// Cuando el DOM está listo, ejecuto `buscarJuegos` para traer los datos.
 
 filtroGenero.addEventListener('change', () => {
     const generoSeleccionado = filtroGenero.value;
     filtrarJuegosPorGenero(generoSeleccionado);
 });
-// Yo: cuando el usuario selecciona un género, filtro la lista en memoria y vuelvo a renderizar.
+// Cuando el usuario selecciona un género, filtro la lista en memoria y vuelvo a renderizar.
 
 // Funciones principales
 
@@ -54,7 +54,7 @@ async function buscarJuegos() {
     mostrarCargando(true);
 
     try {
-        // Yo: construyo la URL destino y la codifico para usarla con el proxy si fuera necesario.
+        // Construyo la URL destino y la codifico para usarla con el proxy si fuera necesario.
         const targetUrl = "https://www.freetogame.com/api/games?platform=pc";
         const proxyUrl = "https://api.allorigins.win/raw?url=" + encodeURIComponent(targetUrl);
         const respuesta = await fetch(proxyUrl);
@@ -80,7 +80,7 @@ async function buscarJuegos() {
     }
 }
 
-// Yo: `buscarJuegos` hace la petición (vía proxy codificado), valida la respuesta, guarda los juegos y dispara el render.
+// `buscarJuegos` hace la petición (vía proxy codificado), valida la respuesta, guarda los juegos y dispara el render.
 // Nota: si se usa un proxy distinto, cambiar la construcción de `proxyUrl`.
 
 function configurarGeneros() {
@@ -97,7 +97,7 @@ function configurarGeneros() {
     });
 }
 
-// Yo: `configurarGeneros` crea la lista de opciones del select de género a partir de los datos descargados.
+// `configurarGeneros` crea la lista de opciones del select de género a partir de los datos descargados.
 // Uso `Set` para eliminar duplicados y `sort()` para ordenarlo alfabeticamente.
 
 function renderizarJuegos(juegosParaRenderizar) {
@@ -115,7 +115,7 @@ function renderizarJuegos(juegosParaRenderizar) {
     actualizarContadorJuegos(juegosParaRenderizar.length);
 }
 
-// Yo: `renderizarJuegos` vacía el contenedor y agrega las tarjetas construidas por `crearTarjetaJuego`.
+// `renderizarJuegos` vacía el contenedor y agrega las tarjetas construidas por `crearTarjetaJuego`.
 
 function crearTarjetaJuego(juego) {
     const enlace = document.createElement('a');
@@ -156,7 +156,7 @@ function crearTarjetaJuego(juego) {
     return enlace;
 }
 
-// Yo: `crearTarjetaJuego` arma la estructura HTML de la tarjeta (link > tarjeta) con miniatura y contenido.
+// `crearTarjetaJuego` arma la estructura HTML de la tarjeta (link > tarjeta) con miniatura y contenido.
 // Mejora posible: incluir `platform` y `release_date` directamente en la tarjeta.
 
 function filtrarJuegosPorGenero(genero) {
@@ -171,20 +171,20 @@ function filtrarJuegosPorGenero(genero) {
     renderizarJuegos(juegosFiltrados);
 }
 
-// Yo: `filtrarJuegosPorGenero` aplica el filtro sobre la lista en memoria y vuelve a renderizar.
+// `filtrarJuegosPorGenero` aplica el filtro sobre la lista en memoria y vuelve a renderizar.
 
 function mostrarCargando(estaCargando) {
     mensajeCargando.style.display = estaCargando ? 'block' : 'none';
 }
 
-// Yo: `mostrarCargando` cambia el display del mensaje de carga.
+// `mostrarCargando` cambia el display del mensaje de carga.
 
 function actualizarContadorJuegos(cantidad) {
     const etiqueta = cantidad === 1 ? 'juego' : 'juegos';
     contadorJuegos.textContent = `${cantidad} ${etiqueta}`;
 }
 
-// Yo: `actualizarContadorJuegos` actualiza el texto con la cantidad de juegos mostrados.
+// `actualizarContadorJuegos` actualiza el texto con la cantidad de juegos mostrados.
 
 --------------------------------------------------------------------------------
 
@@ -192,7 +192,7 @@ Archivo: `Jscript.js`
 
 Resumen corto
 
-Yo: `Jscript.js` contiene interacciones UI pequeñas: control del menú hamburguesa y el control básico del carrusel (prev/next). Es un script de apoyo para la navegación y el carousel minimal.
+`Jscript.js` contiene interacciones UI pequeñas: control del menú hamburguesa y el control básico del carrusel (prev/next). Es un script de apoyo para la navegación y el carousel minimal.
 
 Contenido y explicación línea por línea
 
@@ -203,14 +203,14 @@ const images = document.querySelectorAll('.carousel img');
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
 
-// Yo: capturo referencias al botón hamburguesa, al menú, al carrusel y a los botones prev/next.
+// Capturo referencias al botón hamburguesa, al menú, al carrusel y a los botones prev/next.
 
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('open');
 });
 
-// Yo: al hacer click en el hamburguesa, añado/quito clases para controlar el estilo y visibilidad del menú.
+// Al hacer click en el hamburguesa, añado/quito clases para controlar el estilo y visibilidad del menú.
 // Nota: si en móviles no funciona, puede deberse a que el elemento `hamburger` no existe en esa vista o a que el CSS bloquea la interacción; revisar also el listener y el CSS `z-index`.
 
 let index = 0;
@@ -227,7 +227,7 @@ prevBtn.addEventListener('click', () => {
     updateCarousel();
 });
 
-// Yo: control simple del carrusel: actualizo `index` y aplico una transform al contenedor para desplazar.
+// Control simple del carrusel: actualizo `index` y aplico una transform al contenedor para desplazar.
 // Mejora: actualmente asume que cada imagen ocupa 100% del ancho; para mostrar 3 items en pantalla hay que ajustar CSS (width de cards) y la lógica (calcular desplazamiento por card width y cantidad visible), o implementar un carrusel más avanzado que soporte `slidesToShow`.
 
 --------------------------------------------------------------------------------
