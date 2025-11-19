@@ -1,46 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explorador de Juegos Gratuitos</title>
-    <!-- Hoja de estilos -->
+    <title>GamerStore</title>
+    <link rel="icon" type="image/png" href="img/controlador-de-juego.png">
     <link rel="stylesheet" href="style.css">
-    <!-- Lógica de la página -->
-    <script src="script.js" type="module" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 </head>
+
 <body>
-
-    <!-- Contenedor principal de la aplicación -->
-    <div class="contenedor-app">
-
-        <!-- Encabezado -->
-        <header class="encabezado">
-            <h1><span class="logo-acento">Explorador de Juegos</span> Gratuitos</h1>
-        </header>
-
-        <!-- Controles de filtrado -->
-        <div class="controles">
-            <div class="contenedor-filtro">
-                <label for="filtro-genero">Filtrar por Género:</label>
-                <!-- Menú desplegable para los géneros (se rellena con JS) -->
-                <select id="filtro-genero">
-                    <option value="all">Todos los géneros</option>
-                </select>
-                <!-- Contador de juegos (se actualiza con JS) -->
-                <span id="contador-juegos" class="contador-juegos"></span>
+    <!-- HEADER -->
+    <header class="header">
+        <a href="index.html" class="logo-link">
+            <div class="logo">
+                <img src="img/logo.svg" alt="Logo Gamer Store">
+                <h1>Gamer<span>Store</span></h1>
             </div>
+        </a>
+    <!-- Botón Menú Hamburguesa -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
 
-        <!-- Contenido principal -->
-        <main class="contenido-principal">
-            <!-- Mensaje de "Cargando..." (se oculta con JS) -->
-            <div id="mensaje-cargando" class="cargando">Cargando juegos...</div>
-            <!-- Grilla donde se van a mostrar las tarjetas de los juegos -->
-            <div id="grilla-juegos" class="grilla-juegos"></div>
-        </main>
+    <!-- Navegación -->
+    <nav class="nav" id="navMenu">
+        <ul>
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="games.html">Juegos</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+        </ul>
+    </nav>
+    </header>
 
-    </div>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-text">
+            <h2>Descargá tus juegos favoritos <span>gratis</span></h2>
+            <a href="games.html" class="btn">Explorar Juegos</a>
+        </div>
+    </section>
+
+    <!-- Carruseles dinámicos desde la API -->
+    <section class="carruseles-seccion">
+        <div class="carrusel-wrapper">
+            <h2 class="titulo-carrusel">
+                <span class="material-icons-outlined">local_fire_department</span>
+                Juegos Más Populares
+            </h2>
+            <div id="carrusel-populares" class="contenedor-carrusel"></div>
+        </div>
+        
+        <div class="carrusel-wrapper">
+            <h2 class="titulo-carrusel">
+                <span class="material-icons-outlined">new_releases</span>
+                Lanzamientos Recientes
+            </h2>
+            <div id="carrusel-recientes" class="contenedor-carrusel"></div>
+        </div>
+    </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>© 2025 GamerStore | Todos los derechos reservados.</p>
+        </footer>
+
+        <script type="module" src="script.js" defer></script>
+        <script src="Jscript.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="icon" type="image/png" href="img/controlador-de-juego.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <a href="index.html" class="logo-link">
+            <div class="logo">
+                <img src="img/logo.svg" alt="Logo Gamer Store">
+                <h1>Gamer<span>Store</span></h1>
+            </div>
+        </a>
+        <!-- Botón del menú hamburguesa -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!-- NAV -->
+        <nav class="nav" id="navMenu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="games.html">Juegos</a></li>
+                <li><a href="contact.html" class="active">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contact-section">
+        <h2>Pedinos tu juego</h2>
+        <p>¿No encontrás el juego que querés? Escribinos y lo agregamos a GamerStore.</p>
+
+        <form id="form-contacto" class="contact-form">
+            <div class="form-group">
+                <input type="text" name="nombre" id="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" id="email" placeholder="Tu correo" required>
+            </div>
+            <div class="form-group">
+                <textarea name="mensaje" id="mensaje" rows="5" placeholder="Contanos qué juego te gustaría ver aquí..."
+                    required></textarea>
+            </div>
+            <button type="submit" class="btn">Enviar Mensaje</button>
+            <div id="mensaje-respuesta" class="mensaje-respuesta"></div>
+        </form>
+    </section>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 GamerStore | Todos los derechos reservados.</p>
+    </footer>
+    <script src="Jscript.js"></script>
+    <script>
+        // Yo: manejo el envío del formulario al backend
+        document.getElementById('form-contacto').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const mensajeRespuesta = document.getElementById('mensaje-respuesta');
+            const botonEnviar = e.target.querySelector('button[type="submit"]');
+            
+            // Yo: obtengo los datos del formulario
+            const datos = {
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value,
+                mensaje: document.getElementById('mensaje').value
+            };
+            
+            // Yo: deshabilito el botón mientras envío
+            botonEnviar.disabled = true;
+            botonEnviar.textContent = 'Enviando...';
+            mensajeRespuesta.textContent = '';
+            mensajeRespuesta.className = 'mensaje-respuesta';
+            
+            try {
+                // Yo: hago el POST al backend
+                const respuesta = await fetch('http://localhost:3000/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(datos)
+                });
+                
+                const resultado = await respuesta.json();
+                
+                if (respuesta.ok) {
+                    // Yo: éxito - limpio el formulario
+                    mensajeRespuesta.textContent = '¡Mensaje enviado con éxito! Te contactaremos pronto.';
+                    mensajeRespuesta.className = 'mensaje-respuesta exito';
+                    e.target.reset();
+                } else {
+                    // Yo: error del servidor
+                    mensajeRespuesta.textContent = 'Error al enviar el mensaje. Intentá nuevamente.';
+                    mensajeRespuesta.className = 'mensaje-respuesta error';
+                }
+            } catch (error) {
+                // Yo: error de red o backend no disponible
+                console.error('Error:', error);
+                mensajeRespuesta.textContent = 'No se pudo conectar con el servidor. Asegurate de que el backend esté corriendo en http://localhost:3000';
+                mensajeRespuesta.className = 'mensaje-respuesta error';
+            } finally {
+                // Yo: rehabilito el botón
+                botonEnviar.disabled = false;
+                botonEnviar.textContent = 'Enviar Mensaje';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de juegos</title>
+    <link rel="icon" type="image/png" href="img/controlador-de-juego.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <a href="index.html" class="logo-link">
+            <div class="logo">
+                <img src="img/logo.svg" alt="Logo Gamer Store">
+                <h1>Gamer<span>Store</span></h1>
+            </div>
+        </a>
+        <!-- Menú hamburguesa -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!-- NAV -->
+        <nav class="nav" id="navMenu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="games.html" class="active">Juegos</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero catalogo-section">
+    <h2 class="titulo-seccion titulo-catalogo">
+        <span class="material-icons-outlined">sports_esports</span>
+        Catálogo de Juegos
+    </h2>
+    <!-- Controles de filtrado -->
+    <div class="controles">
+        <div class="contenedor-filtro">
+            <label for="filtro-genero">Filtrar por Género:</label>
+            <select id="filtro-genero">
+                <option value="all">Todos los géneros</option>
+            </select>
+        </div>
+        
+        <div class="contenedor-filtro">
+            <label for="filtro-plataforma">Filtrar por Plataforma:</label>
+            <select id="filtro-plataforma">
+                <option value="all">Todas las plataformas</option>
+            </select>
+        </div>
+
+        <div class="contenedor-filtro">
+            <label for="busqueda-titulo">Buscar por título:</label>
+            <input type="text" id="busqueda-titulo" placeholder="Escribe el nombre del juego...">
+        </div>
+
+        <div class="contenedor-filtro">
+            <label for="filtro-ordenamiento">Ordenar por:</label>
+            <select id="filtro-ordenamiento">
+                <option value="popularity">Popularidad</option>
+                <option value="release-date">Lanzamiento</option>
+                <option value="alphabetical">Alfabéticamente</option>
+            </select>
+        </div>
+
+        <span id="contador-juegos" class="contador-juegos"></span>
+    </div>
+    <!-- Contenido principal -->
+    <main class="contenido-principal">
+        <div id="mensaje-cargando" class="cargando">Cargando juegos...</div>
+
+        <div id="grilla-juegos" class="grilla-juegos"></div>
+    </main>
+    </section>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 GamerStore | Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module" src="script.js" defer></script>
+    <script src="Jscript.js"></script>
+
+</body>
+</html>

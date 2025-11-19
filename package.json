@@ -1,0 +1,17 @@
+{
+  "name": "version-yami",
+  "version": "1.0.0",
+  "description": "Esta es una galería de juegos gratuitos que te permite descubrir nuevos juegos. La aplicación consume la API de [FreeToGame](https://www.freetogame.com/) para mostrar una lista de juegos que se pueden jugar de forma gratuita. Al hacer clic en un juego, serás redirigido a su página web oficial para poder jugarlo.",
+  "main": "Jscript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2"
+  }
+}
