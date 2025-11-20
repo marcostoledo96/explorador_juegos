@@ -1,4 +1,4 @@
-// Yo: servidor backend para GamerStore
+// Servidor backend para GamerStore
 // Maneja el envío de emails del formulario de contacto y actúa como proxy para la API de juegos
 
 const express = require('express');
@@ -9,7 +9,7 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Yo: configuro middlewares básicos
+// Configuro middlewares básicos
 app.use(cors({
   origin: ['http://127.0.0.1:5502', 'http://localhost:5502'],
   credentials: true
@@ -17,7 +17,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Yo: configuro el transportador de nodemailer para enviar emails
+// Configuro el transportador de nodemailer para enviar emails
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: process.env.SMTP_PORT,
@@ -28,7 +28,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// Yo: verifico la configuración del transportador al iniciar
+// Verifico la configuración del transportador al iniciar
 transporter.verify((error, success) => {
   if (error) {
     console.error('Error al verificar configuración SMTP:', error);
@@ -37,11 +37,11 @@ transporter.verify((error, success) => {
   }
 });
 
-// Yo: endpoint para recibir mensajes del formulario de contacto
+// Endpoint para recibir mensajes del formulario de contacto
 app.post('/contact', async (req, res) => {
   const { name, email, message } = req.body;
 
-  // Yo: valido que los campos requeridos estén presentes
+  // Valido que los campos requeridos estén presentes
   if (!name || !email || !message) {
     return res.status(400).json({
       success: false,
@@ -49,7 +49,7 @@ app.post('/contact', async (req, res) => {
     });
   }
 
-  // Yo: configuro el email que voy a enviar
+  // Configuro el email que voy a enviar
   const mailOptions = {
     from: process.env.SMTP_USER,
     to: process.env.RECIPIENT_EMAIL || 'marcostoledo96@gmail.com',
@@ -71,7 +71,7 @@ app.post('/contact', async (req, res) => {
   };
 
   try {
-    // Yo: envío el email
+    // Envío el email
     await transporter.sendMail(mailOptions);
     res.json({
       success: true,
@@ -86,7 +86,7 @@ app.post('/contact', async (req, res) => {
   }
 });
 
-// Yo: endpoint proxy para la API de FreeToGame (evita problemas de CORS)
+// Endpoint proxy para la API de FreeToGame (evita problemas de CORS)
 app.get('/api/games', async (req, res) => {
   try {
     const { platform, category, 'sort-by': sortBy } = req.query;
@@ -98,7 +98,7 @@ app.get('/api/games', async (req, res) => {
     
     const url = `https://www.freetogame.com/api/games${params.toString() ? '?' + params.toString() : ''}`;
     
-    // Yo: uso fetch nativo de Node (requiere Node 18+) o node-fetch en versiones anteriores
+    // Uso fetch nativo de Node (requiere Node 18+) o node-fetch en versiones anteriores
     const response = await fetch(url);
     const data = await response.json();
     
@@ -112,12 +112,12 @@ app.get('/api/games', async (req, res) => {
   }
 });
 
-// Yo: endpoint de health check
+// Endpoint de health check
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', message: 'Backend GamerStore funcionando' });
 });
 
-// Yo: inicio el servidor
+// Inicio el servidor
 app.listen(PORT, () => {
   console.log(`Servidor backend corriendo en http://localhost:${PORT}`);
   console.log('Endpoints disponibles:');

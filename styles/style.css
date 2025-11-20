@@ -120,7 +120,7 @@ h1, h2, h3, h4, h5, h6 {
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .hero {
-        padding: 100px 15px; /* Yo: reduzco padding lateral en móvil */
+        padding: 100px 15px; /* Reduzco padding lateral en móvil */
     }
 
     .header {
@@ -291,20 +291,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 select#filtro-genero {
-    width: 100%; /* Yo: ancho completo para igualar a los otros */
-    background-color: #0d0d0d; /* Yo: mismo color que otros selectores */
-    border: 1px solid #2a2a2a; /* Yo: mismo borde que otros selectores */
-    color: #e0e0e0; /* Yo: mismo color de texto */
-    padding: 10px; /* Yo: mismo padding que otros selectores */
+    width: 100%; /* Ancho completo para igualar a los otros */
+    background-color: #0d0d0d; /* Mismo color que otros selectores */
+    border: 1px solid #2a2a2a; /* Mismo borde que otros selectores */
+    color: #e0e0e0; /* Mismo color de texto */
+    padding: 10px; /* Mismo padding que otros selectores */
     border-radius: 6px;
-    font-family: 'Orbitron', sans-serif; /* Yo: misma fuente */
+    font-family: 'Orbitron', sans-serif; /* Misma fuente */
     font-size: 0.9rem;
     transition: border 0.3s;
 }
 
 select#filtro-genero:focus {
     outline: none;
-    border-color: #00FF99; /* Yo: mismo efecto focus */
+    border-color: #00FF99; /* Mismo efecto focus */
 }
 
 .contador-juegos {
@@ -318,7 +318,7 @@ select#filtro-genero:focus {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 24px;
     padding: 0 40px;
-    justify-content: center; /* Yo: centro el contenido de la grilla */
+    justify-content: center; /* Centro el contenido de la grilla */
 }
 
 .enlace-tarjeta-juego {
@@ -334,7 +334,7 @@ select#filtro-genero:focus {
     border: 2px solid transparent;
     transition: all 0.3s ease;
     cursor: pointer;
-    height: auto; /* Yo: altura automática para reducir espacio en blanco */
+    height: auto; /* Altura automática para reducir espacio en blanco */
     display: flex;
     flex-direction: column;
 }
@@ -347,47 +347,47 @@ select#filtro-genero:focus {
 
 .tarjeta-juego img {
     width: 100%;
-    height: 140px; /* Yo: altura fija de imagen */
+    height: 140px; /* Altura fija de imagen */
     object-fit: cover;
     border-radius: 8px;
-    flex-shrink: 0; /* Yo: la imagen no se encoge */
+    flex-shrink: 0; /* La imagen no se encoge */
 }
 
 .tarjeta-juego .contenido {
-    padding: 12px 3px; /* Yo: padding vertical aumentado a 12px, horizontal 3px */
+    padding: 12px 3px; /* Padding vertical aumentado a 12px, horizontal 3px */
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Yo: gap AUMENTADO para mayor separación entre elementos */
-    overflow: hidden; /* Yo: evito desbordamiento */
+    gap: 8px; /* Gap aumentado para mayor separación entre elementos */
+    overflow: hidden; /* Evito desbordamiento */
 }
 
 .tarjeta-juego .titulo {
     color: white;
     font-weight: bold;
     margin: 0;
-    font-size: 1.1rem; /* Yo: AUMENTADO para ser más vistoso */
+    font-size: 1.1rem; /* Aumentado para ser más vistoso */
     line-height: 1.3;
     overflow: hidden;
     text-overflow: ellipsis;
     display: flex;
     align-items: center;
     justify-content: center;
-    -webkit-line-clamp: 2; /* Yo: permite hasta 2 líneas */
+    -webkit-line-clamp: 2; /* Permite hasta 2 líneas */
     -webkit-box-orient: vertical;
-    white-space: normal; /* Yo: permito salto de línea */
-    min-height: 2.6em; /* Yo: altura mínima para 2 renglones (1.3 * 2) */
+    white-space: normal; /* Permito salto de línea */
+    min-height: 2.6em; /* Altura mínima para 2 renglones (1.3 * 2) */
     text-align: center;
 }
 
 .tarjeta-juego .genero {
     color: #00FF99;
-    font-size: 0.9rem; /* Yo: AUMENTADO */
+    font-size: 0.9rem; /* Aumentado */
     line-height: 1.2;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 0;
-    padding: 4px 0; /* Yo: padding superior e inferior */
+    padding: 4px 0; /* Padding superior e inferior */
 }
 
 /* BOTONES SECUNDARIOS */
@@ -525,13 +525,13 @@ select#filtro-genero:focus {
 .carruseles-seccion {
     padding: 40px 20px;
     background-color: #0a0a0a;
-    overflow: visible; /* Yo: permito que el hover sobresalga */
+    overflow: visible; /* Permito que el hover sobresalga */
 }
 
 .carrusel-wrapper {
     margin-bottom: 60px;
-    overflow: visible; /* Yo: permito que el hover sobresalga */
-    padding: 0 10px; /* Yo: padding lateral para espacio del hover */
+    overflow: visible; /* Permito que el hover sobresalga */
+    padding: 0 10px; /* Padding lateral para espacio del hover */
 }
 
 .titulo-carrusel {
@@ -543,17 +543,17 @@ select#filtro-genero:focus {
 
 .contenedor-carrusel {
     position: relative;
-    overflow: visible; /* Yo: cambio de hidden a visible para que el hover no se corte */
-    padding: 0; /* Yo: quito padding del contenedor, lo paso al carrusel */
+    overflow: visible; /* Cambio de hidden a visible para que el hover no se corte */
+    padding: 0; /* Quito padding del contenedor, lo paso al carrusel */
 }
 
 .carrusel {
     display: flex;
     align-items: center;
     position: relative;
-    overflow: hidden; /* Yo: el overflow hidden va acá para ocultar items fuera de vista */
-    padding: 30px 10px; /* Yo: AÑADO PADDING INTERNO para que el hover (scale) no se corte */
-    margin: -30px -10px; /* Yo: compenso el padding para no alterar el flujo */
+    overflow: hidden; /* El overflow hidden va acá para ocultar items fuera de vista */
+    padding: 30px 10px; /* Añado padding interno para que el hover (scale) no se corte */
+    margin: -30px -10px; /* Compenso el padding para no alterar el flujo */
 }
 
 .carrusel-pista {
@@ -561,20 +561,20 @@ select#filtro-genero:focus {
     gap: 20px;
     transition: transform 0.4s ease-in-out;
     width: 100%;
-    overflow: visible; /* Yo: permito que el hover se vea completo */
-    padding-right: 20px; /* Yo: espacio extra a la derecha para la última card */
+    overflow: visible; /* Permito que el hover se vea completo */
+    padding-right: 20px; /* Espacio extra a la derecha para la última card */
 }
 
 .carrusel-item {
     flex: 0 0 calc(33.333% - 14px);
     text-decoration: none;
     color: inherit;
-    position: relative; /* Yo: necesario para z-index */
-    transition: z-index 0s; /* Yo: cambio instantáneo de z-index */
+    position: relative; /* Necesario para z-index */
+    transition: z-index 0s; /* Cambio instantáneo de z-index */
 }
 
 .carrusel-item:hover {
-    z-index: 20; /* Yo: al hacer hover, subo la tarjeta sobre las demás */
+    z-index: 20; /* Al hacer hover, subo la tarjeta sobre las demás */
 }
 
 .carrusel-tarjeta {
@@ -583,20 +583,20 @@ select#filtro-genero:focus {
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
     border: 1px solid #2a2a2a;
-    height: 240px; /* Yo: altura fija más baja para evitar cortes en hover */
+    height: 240px; /* Altura fija más baja para evitar cortes en hover */
     display: flex;
     flex-direction: column;
 }
 
 .carrusel-tarjeta:hover {
-    transform: translateY(-5px); /* Yo: menos movimiento para evitar cortes */
+    transform: translateY(-5px); /* Menos movimiento para evitar cortes */
     box-shadow: 0 8px 25px rgba(0, 255, 153, 0.3);
-    border-color: #00FF99; /* Yo: resalto el borde en hover */
+    border-color: #00FF99; /* Resalto el borde en hover */
 }
 
 .carrusel-tarjeta img {
     width: 100%;
-    height: 150px; /* Yo: altura reducida */
+    height: 150px; /* Altura reducida */
     object-fit: cover;
     flex-shrink: 0;
 }
@@ -611,7 +611,7 @@ select#filtro-genero:focus {
 }
 
 .carrusel-info h4 {
-    font-size: 0.9rem; /* Yo: reducido */
+    font-size: 0.9rem; /* Reducido */
     color: #00FF99;
     margin-bottom: 6px;
     overflow: hidden;
@@ -620,7 +620,7 @@ select#filtro-genero:focus {
 }
 
 .carrusel-info p {
-    font-size: 0.75rem; /* Yo: reducido */
+    font-size: 0.75rem; /* Reducido */
     color: #888;
     margin: 0;
     white-space: nowrap;
@@ -682,8 +682,8 @@ select#filtro-genero:focus {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    flex: 1 1 0; /* Yo: flex-basis 0 para forzar igualdad real */
-    min-width: 200px; /* Yo: ancho mínimo para que hagan wrap si falta espacio */
+    flex: 1 1 0; /* Flex-basis 0 para forzar igualdad real */
+    min-width: 200px; /* Ancho mínimo para que hagan wrap si falta espacio */
 }
 
 .contenedor-filtro label {
@@ -694,7 +694,7 @@ select#filtro-genero:focus {
 
 .contenedor-filtro select,
 .contenedor-filtro input[type="text"] {
-    width: 100%; /* Yo: asegura que ocupen todo el ancho del contenedor */
+    width: 100%; /* Ocupan todo el ancho del contenedor */
     padding: 10px;
     background: #0d0d0d;
     border: 1px solid #2a2a2a;
@@ -719,14 +719,14 @@ select#filtro-genero:focus {
 }
 
 .meta-info {
-    font-size: 0.85rem; /* Yo: AUMENTADO para mejor legibilidad */
+    font-size: 0.85rem; /* Aumentado para mejor legibilidad */
     color: #999;
     margin: 0;
     line-height: 1.3;
-    white-space: nowrap; /* Yo: UNA sola línea siempre */
+    white-space: nowrap; /* Una sola línea siempre */
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 3px 0; /* Yo: padding superior e inferior para separación */
+    padding: 3px 0; /* Padding superior e inferior para separación */
 }
 
 .mensaje-respuesta {
@@ -762,13 +762,13 @@ select#filtro-genero:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 240px; /* Yo: misma altura que las demás tarjetas */
+    height: 240px; /* Misma altura que las demás tarjetas */
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .carrusel-ver-mas .tarjeta-ver-mas:hover {
-    transform: translateY(-5px); /* Yo: mismo movimiento que las demás */
+    transform: translateY(-5px); /* Mismo movimiento que las demás */
     box-shadow: 0 8px 30px rgba(0, 255, 153, 0.5);
 }
 
@@ -829,10 +829,10 @@ select#filtro-genero:focus {
 
 /* ====== RESPONSIVE ====== */
 
-/* Yo: pantallas grandes (1200px - 1400px) - ajuste fino de tarjetas */
+/* Pantallas grandes (1200px - 1400px) - ajuste fino de tarjetas */
 @media (max-width: 1400px) {
     .tarjeta-juego .titulo {
-        font-size: 1rem; /* Yo: ajustado pero grande */
+        font-size: 1rem; /* Ajustado pero grande */
     }
     
     .tarjeta-juego .genero {
@@ -844,7 +844,7 @@ select#filtro-genero:focus {
     }
 }
 
-/* Yo: pantallas medianas (1024px - 1200px) */
+/* Pantallas medianas (1024px - 1200px) */
 @media (max-width: 1200px) {
     .tarjeta-juego .titulo {
         font-size: 0.95rem;
@@ -859,7 +859,7 @@ select#filtro-genero:focus {
     }
 }
 
-/* Yo: tablets (600px - 1024px) */
+/* Tablets (600px - 1024px) */
 @media (max-width: 1024px) {
     .carrusel-item {
         flex: 0 0 calc(50% - 10px);
@@ -879,11 +879,11 @@ select#filtro-genero:focus {
     }
     
     .tarjeta-juego {
-        height: auto; /* Yo: altura automática */
+        height: auto; /* Altura automática */
     }
     
     .tarjeta-juego .contenido {
-        padding: 10px 3px; /* Yo: mantengo padding horizontal reducido */
+        padding: 10px 3px; /* Mantengo padding horizontal reducido */
     }
     
     .tarjeta-juego .titulo {
@@ -899,7 +899,7 @@ select#filtro-genero:focus {
     }
 }
 
-/* Yo: tablets pequeñas y móviles grandes (768px - 900px) */
+/* Tablets pequeñas y móviles grandes (768px - 900px) */
 @media (max-width: 900px) {
     .tarjeta-juego img {
         height: 130px;
@@ -910,20 +910,20 @@ select#filtro-genero:focus {
     }
 }
 
-/* Yo: móviles (< 768px) */
+/* Móviles (< 768px) */
 @media (max-width: 768px) {
     .hero h2 {
         font-size: 1.8rem;
     }
 
     .grilla-juegos {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Yo: auto-fit para mejor adaptación */
-        padding: 0 10px; /* Yo: reduzco padding para ganar espacio */
-        justify-content: center; /* Yo: centro la grilla */
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Auto-fit para mejor adaptación */
+        padding: 0 10px; /* Reduzco padding para ganar espacio */
+        justify-content: center; /* Centro la grilla */
     }
 
     .tarjeta-juego {
-        height: auto; /* Yo: altura automática */
+        height: auto; /* Altura automática */
     }
 
     .tarjeta-juego img {
@@ -940,7 +940,7 @@ select#filtro-genero:focus {
     }
     
     .carrusel-tarjeta {
-        height: 220px; /* Yo: más pequeña en móvil */
+        height: 220px; /* Más pequeña en móvil */
     }
     
     .carrusel-tarjeta img {
@@ -976,7 +976,7 @@ select#filtro-genero:focus {
     }
     
     .tarjeta-juego .titulo {
-        font-size: 1rem; /* Yo: grande en móvil también */
+        font-size: 1rem; /* Grande en móvil también */
     }
     
     .tarjeta-juego .genero {
@@ -988,7 +988,7 @@ select#filtro-genero:focus {
     }
 }
 
-/* Yo: móviles pequeños (< 600px) */
+/* Móviles pequeños (< 600px) */
 @media (max-width: 600px) {
     .carrusel-tarjeta {
         height: 200px;
@@ -1020,14 +1020,14 @@ select#filtro-genero:focus {
     }
 }
 
-/* Yo: móviles muy pequeños (< 400px) */
+/* Móviles muy pequeños (< 400px) */
 @media (max-width: 400px) {
     .tarjeta-juego {
         height: auto;
     }
 }
 
-/* Yo: móviles pequeños (< 600px) */
+/* Móviles pequeños (< 600px) */
 @media (max-width: 600px) {
     .carrusel-tarjeta {
         height: 200px;
@@ -1055,34 +1055,34 @@ select#filtro-genero:focus {
     }
     
     .tarjeta-juego .contenido {
-        padding: 12px 8px; /* Yo: un poco más de padding lateral */
+        padding: 12px 8px; /* Un poco más de padding lateral */
     }
     
     .tarjeta-juego .titulo {
-        font-size: 1.2rem; /* Yo: AUMENTADO considerablemente */
+        font-size: 1.2rem; /* Aumentado considerablemente */
     }
     
     .tarjeta-juego .genero {
-        font-size: 1rem; /* Yo: AUMENTADO */
+        font-size: 1rem; /* Aumentado */
     }
     
     .meta-info {
-        font-size: 0.9rem; /* Yo: AUMENTADO */
+        font-size: 0.9rem; /* Aumentado */
     }
 }
 
-/* Yo: móviles muy pequeños (< 400px) */
+/* Móviles muy pequeños (< 400px) */
 @media (max-width: 400px) {
     .tarjeta-juego .titulo {
-        font-size: 1.1rem; /* Yo: AUMENTADO */
+        font-size: 1.1rem; /* Aumentado */
     }
     
     .tarjeta-juego .genero {
-        font-size: 0.95rem; /* Yo: AUMENTADO */
+        font-size: 0.95rem; /* Aumentado */
     }
     
     .meta-info {
-        font-size: 0.85rem; /* Yo: AUMENTADO */
+        font-size: 0.85rem; /* Aumentado */
     }
     
     .tarjeta-juego {
